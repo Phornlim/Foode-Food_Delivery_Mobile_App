@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
-class OrdersPage extends StatelessWidget {
+import '../components/order_page.dart';
+
+class OrdersPage extends StatefulWidget {
   const OrdersPage({Key? key}) : super(key: key);
 
   static const String routeName = '/orders_page';
 
   @override
+  State<OrdersPage> createState() => _OrdersPageState();
+}
+
+class _OrdersPageState extends State<OrdersPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Orders Page'),
-      ),
-      body: const Center(
-        child: Text('Orders Page'),
-      ),
+      body: OrderPage(),
     );
   }
 }

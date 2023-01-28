@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/views/chat_page.dart';
 import 'package:flutter_food_delivery_app/views/main_page.dart';
 import 'package:flutter_food_delivery_app/views/orders_page.dart';
+import 'package:flutter_food_delivery_app/views/popular_list_page.dart';
 import 'package:flutter_food_delivery_app/views/profile_page.dart';
 
 import '../views/get_started_page.dart';
@@ -42,6 +43,10 @@ Route<RouteSettings> onGenerateRoute(RouteSettings settings) {
     case ProfilePage.routeName:
       return MaterialPageRoute(
         builder: (context) => ProfilePage(),
+      );
+    case PopularListPage.routeName:
+      return MaterialPageRoute(
+        builder: (context) =>  PopularListPage(),
       );
     default:
       return MaterialPageRoute(

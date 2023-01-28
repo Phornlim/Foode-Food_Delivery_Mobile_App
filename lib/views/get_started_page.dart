@@ -16,7 +16,9 @@ class GetStartedPage extends StatelessWidget {
   }) : super(key: key);
 
   static const String routeName = '/get_started';
+
   final GetStartedPageArguments arguments;
+
 
   @override
   Widget build(BuildContext context) {

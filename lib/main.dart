@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/common/constants.dart';
+import 'package:flutter_food_delivery_app/components/find_food.dart';
 import 'package:flutter_food_delivery_app/views/splash_page.dart';
 
+import 'components/Sign_up_page.dart';
+import 'components/about_select_upload_page.dart';
+import 'components/about_set_locations_page.dart';
+import 'components/about_upload_photo_page.dart';
+import 'components/chat_page1.dart';
+import 'components/congrats_page.dart';
+import 'components/fill_bio_page.dart';
+import 'components/forgot_password_page.dart';
+import 'components/order_completed.dart';
+import 'components/popular_menu.dart';
+import 'components/promotion_page.dart';
+import 'components/rate_meal.dart';
+import 'components/rate_restaurant.dart';
+import 'components/reset_password_page.dart';
+import 'components/sign_in_page.dart';
+import 'components/verifications_page.dart';
 import 'router/app_router.dart';
 
 void main() {
@@ -14,6 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Kantumruy Pro',
         primaryColor: primaryColor,
@@ -55,6 +73,25 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: SplashPage.routeName,
       onGenerateRoute: onGenerateRoute,
+      // home: Scaffold(
+      //   body: //AboutSignInPage(),
+      //   //AboutSignUpPage(),
+      //   //AboutFillBioPage(),
+      //   //AboutResetPassword(),
+      //   //AboutCongratsPage(),
+      //   //AboutChangePassword(),
+      //   //AboutVerificationsPage(),
+      //   //AboutUploadPhoto(),
+      //   //AboutSetLocationsPage(),
+      //   //AboutSelectUploadPage(),
+      //   //PopularMenuPage(),
+      //   //FindFoodPage(),
+      //   ChatPage1(),
+      //   //RateMeal(),
+      //   //RateRestaurant(),
+      //   //OrderCompletedPage(),
+      //   //PromotionPage(),
+      // ),
     );
   }
 }
