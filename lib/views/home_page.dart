@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/common/constants.dart';
 import 'package:flutter_food_delivery_app/views/popular_list_page.dart';
 
+import '../components/notifications.dart';
 import '../components/restaurant_item_card.dart';
 import '../components/search_and_filter_widget.dart';
 
@@ -210,7 +211,12 @@ class _HomePageState extends State<HomePage> {
           Stack(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  final route = MaterialPageRoute(
+                    builder: (context) => Notifications(),
+                  );
+                  Navigator.push(context, route);
+                },
                 icon: Icon(Icons.notifications,),
                 color: Theme.of(context).primaryColor,
               ),

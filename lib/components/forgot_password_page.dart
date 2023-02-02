@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/components/verifications_page.dart';
 
 import '../common/constants.dart';
 
-class AboutChangePassword extends StatelessWidget {
+class AboutChangePassword extends StatefulWidget {
   const AboutChangePassword({Key? key}) : super(key: key);
 
+  @override
+  State<AboutChangePassword> createState() => _AboutChangePasswordState();
+}
+
+class _AboutChangePasswordState extends State<AboutChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(
-          top: 40,
+          top: 60,
           right: 20,
           left: 20,
           bottom: 40
@@ -20,11 +26,25 @@ class AboutChangePassword extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  child: BackButton(
-                    color: primaryColor,
+                  height: 36,
+                  width: 36,
+                  child: IconButton(
+                    splashRadius: 2,
+                    iconSize: 20,
+                    padding: EdgeInsets.only(),
+                    icon: Icon(Icons.arrow_back_ios_new),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 20),
                 Text(
                   "Forgot password?",
                   style: TextStyle(
@@ -34,7 +54,7 @@ class AboutChangePassword extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 40),
             Text(
               "Select which contact details should we use to reset your password",
               style: TextStyle(
@@ -52,16 +72,20 @@ class AboutChangePassword extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.black.withOpacity(0.1),
                     spreadRadius: 2,
-                    blurRadius: 5
+                    blurRadius: 5,
                   ),
-                ]
+                ],
+                border: Border.all(
+                  width: 2,
+                  color: Theme.of(context).primaryColor
+                ),
               ),
               child: ListTile(
                 onTap: () {},
                 leading: CircleAvatar(
-                  backgroundColor: Colors.pinkAccent.withOpacity(0.3),
+                  backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
                   maxRadius: 50,
                   child: Icon(
                     Icons.message,
@@ -100,15 +124,16 @@ class AboutChangePassword extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.white.withOpacity(0.1),
+                        color: Colors.black.withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 5
                     ),
                   ]
               ),
               child: ListTile(
+                onTap: () {},
                 leading: CircleAvatar(
-                  backgroundColor: Colors.pinkAccent.withOpacity(0.3),
+                  backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
                   maxRadius: 50,
                   child: Icon(
                     Icons.mail,
@@ -142,7 +167,12 @@ class AboutChangePassword extends StatelessWidget {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  final route = MaterialPageRoute(
+                    builder: (context) => AboutVerificationsPage(),
+                  );
+                  Navigator.push(context, route);
+                },
                 child: Text(
                   "Next",
                   style: TextStyle(

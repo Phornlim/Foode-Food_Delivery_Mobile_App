@@ -1,16 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/components/favorite.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   static const String routeName = '/profile_page';
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(0),
+              child: Container(
+                width: double.maxFinite,
+                child: Center(
+                  child: Text(
+                    '',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                padding: EdgeInsets.only(
+                  top: 5,
+                  bottom: 15,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
+                  ),
+                ),
+              ),
+            ),
+            backgroundColor: Colors.white,
             expandedHeight: 428,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
@@ -24,31 +57,38 @@ class ProfilePage extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              SizedBox(height: 40),
-              Container(
-                  height: 25,
-                  padding: EdgeInsets.only(
-                    left: 33,
-                    right: 230,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 20),
+                      Container(
+                        width: 120,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                            color: Colors.yellow,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Member Gold',
+                              style: TextStyle(
+                                color: Colors.yellow,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      side: BorderSide(
-                        width: 1,
-                        color: Colors.yellow
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                      )
-                    ),
-                    child: Text(
-                      'Member Gold',
-                      style: TextStyle(
-                        color: Colors.yellow
-                      ),
-                    ),
-                  )),
+                ],
+              ),
               SizedBox(height: 20),
               Row(
                 children: [
@@ -85,7 +125,7 @@ class ProfilePage extends StatelessWidget {
                     padding: EdgeInsets.all(4),
                     decoration: BoxDecoration(
                       color: Theme.of(context).primaryColor.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(18),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   SizedBox(width: 20),
@@ -159,7 +199,9 @@ class ProfilePage extends StatelessWidget {
                   ),
                   Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, FavoritePage.routeName);
+                    },
                     child: Text(
                       'See all',
                       style:
@@ -235,7 +277,9 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Container(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _removeFavorite();
+                              },
                               icon: Icon(
                                 Icons.favorite,
                                 size: 32,
@@ -316,7 +360,9 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Container(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _removeFavorite();
+                              },
                               icon: Icon(
                                 Icons.favorite,
                                 size: 32,
@@ -397,7 +443,9 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Container(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _removeFavorite();
+                              },
                               icon: Icon(
                                 Icons.favorite,
                                 size: 32,
@@ -478,7 +526,9 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Container(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _removeFavorite();
+                              },
                               icon: Icon(
                                 Icons.favorite,
                                 size: 32,
@@ -559,7 +609,9 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Container(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _removeFavorite();
+                              },
                               icon: Icon(
                                 Icons.favorite,
                                 size: 32,
@@ -640,7 +692,9 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Container(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _removeFavorite();
+                              },
                               icon: Icon(
                                 Icons.favorite,
                                 size: 32,
@@ -655,11 +709,98 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 100),
+              SizedBox(height: 120),
             ]),
           ),
         ],
       ),
+    );
+  }
+
+  void _removeFavorite() {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(40),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          height: 272,
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              Icon(
+                Icons.favorite_border,
+                size: 48,
+                color: Theme.of(context).primaryColor,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Remove from favorite?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF2C3A4B),
+                ),
+              ),
+              SizedBox(height: 40),
+              Row(
+                children: [
+                  SizedBox(width: 16),
+                  Container(
+                    height: 55,
+                    width: 170,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          side: BorderSide(
+                              width: 2,
+                              color: Theme.of(context).primaryColor
+                          )
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    height: 55,
+                    width: 170,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Remove',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Theme.of(context).primaryColor,
+                          side: BorderSide(
+                              width: 2,
+                              color: Theme.of(context).primaryColor
+                          )
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

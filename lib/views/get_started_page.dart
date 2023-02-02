@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/sign_in_page.dart';
 import 'main_page.dart';
 
 class GetStartedPageArguments {
@@ -18,7 +19,6 @@ class GetStartedPage extends StatelessWidget {
   static const String routeName = '/get_started';
 
   final GetStartedPageArguments arguments;
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +69,15 @@ class GetStartedPage extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(
-                            context,
-                            MainPage.routeName,
+                          final newRoute = MaterialPageRoute(
+                            builder: (context) => AboutSignInPage(),
                           );
+                          Navigator.pushReplacement(context, newRoute);
                         },
-                        child: const Text("Get Started"),
+                        child: const Text(
+                          "Get Started",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),

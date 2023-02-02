@@ -114,7 +114,7 @@ class _MainPageState extends State<MainPage> {
             ),
             _buildBottomNavigationBarItem(
               icon: Icons.chat,
-              label: 'Order',
+              label: 'Chat',
               index: 2
             ),
             _buildBottomNavigationBarItem(

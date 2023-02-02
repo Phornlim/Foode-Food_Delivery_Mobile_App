@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
@@ -567,7 +568,7 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 100),
+                SizedBox(height: 120),
               ],
             ),
           ],

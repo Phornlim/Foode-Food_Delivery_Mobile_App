@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/common/constants.dart';
+import 'package:flutter_food_delivery_app/views/main_page.dart';
 
 class AboutCongratsPage extends StatelessWidget {
   const AboutCongratsPage({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class AboutCongratsPage extends StatelessWidget {
                   "Password reset successful",
                   style: TextStyle(
                       fontSize: 18,
-                    fontWeight: FontWeight.w400
+                    fontWeight: FontWeight.w500
                   ),
                 )
               ],
@@ -61,11 +62,16 @@ class AboutCongratsPage extends StatelessWidget {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  final newRoute = MaterialPageRoute(
+                    builder: (context) => MainPage(),
+                  );
+                  Navigator.pushReplacement(context, newRoute);
+                },
                 child: Text(
-                  "Save",
+                  "OK",
                   style: TextStyle(
-
+                      fontSize: 18, fontWeight: FontWeight.w600
                   ),
                 ),
                 style: ElevatedButton.styleFrom(

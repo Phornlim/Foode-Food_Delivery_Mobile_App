@@ -17,27 +17,44 @@ class PopularListPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: Text(
-              'Popular Restaurant',
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                fontWeight: FontWeight.w600,
+            leadingWidth: 70,
+            leading: Padding(
+              padding: EdgeInsets.only(left: 20,top: 20),
+              child: Row(
+                children: [
+                  Container(
+                    height: 36,
+                    width: 36,
+                    child: IconButton(
+                      splashRadius: 2,
+                      iconSize: 20,
+                      padding: EdgeInsets.only(),
+                      icon: Icon(Icons.arrow_back_ios_new),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ],
               ),
             ),
-            floating: false,
-            pinned: false,
-            leadingWidth: 56,
-            leading: Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor.withOpacity(0.4),
-                shape: BoxShape.circle
-              ),
-              margin: const EdgeInsets.only(left: 16),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Icon(Icons.arrow_back),
-              ),
+            title: Column(
+              children: [
+                SizedBox(height: 20),
+                Text(
+                  'Popular Restaurant',
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                      color: Colors.black,
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600),
+                ),
+              ],
             ),
           ),
           TopSearchCustomAppBar(),

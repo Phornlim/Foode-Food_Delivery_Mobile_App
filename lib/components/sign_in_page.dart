@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/common/constants.dart';
+import 'package:flutter_food_delivery_app/views/main_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'Sign_up_page.dart';
+import 'forgot_password_page.dart';
 
 class AboutSignInPage extends StatefulWidget {
   const AboutSignInPage({Key? key}) : super(key: key);
@@ -10,7 +14,6 @@ class AboutSignInPage extends StatefulWidget {
 }
 
 class _AboutSignInPageState extends State<AboutSignInPage> {
-
   bool _obscureText = true;
   bool _obscureBox = true;
 
@@ -60,31 +63,46 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                 ),
               ),
               SizedBox(height: 10),
-              TextField(
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600
-                ),
-                decoration: InputDecoration(
-                  isDense: true,
-                  border: OutlineInputBorder(),
-                  hintText: '    Email or Phone Number',
-                  hintStyle: TextStyle(
-                    color: Colors.grey
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 50,
+                      child: TextField(
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          prefix: SizedBox(width: 10),
+                          hintStyle: TextStyle(
+                              color: Color(0xFFA5ABB3),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                          hintText: 'Email or Phone Number',
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFF4F6F9),
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey.withOpacity(0.2)),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey.withOpacity(0.2)),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(
-                              color: Color(0xFFEBEEF2),
-                              width: 2),
-                      borderRadius: BorderRadius.circular(100)),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(
-                              color: Color(0xFFEBEEF2),
-                              width: 2),
-                      borderRadius: BorderRadius.circular(100)),
-                ),
+                ],
               ),
               SizedBox(height: 20),
               Container(
@@ -94,7 +112,7 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                     Text(
                       "Password",
                       style:
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                     Text(
                       "*",
@@ -107,50 +125,63 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                 ),
               ),
               SizedBox(height: 10),
-              TextField(
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600
-                ),
-                decoration: InputDecoration(
-                  isDense: true,
-                  suffixIcon: togglePassword(),
-                  border: OutlineInputBorder(),
-                  hintText: '    Password',
-                  hintStyle: TextStyle(
-                      color: Colors.grey
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 50,
+                      child: TextField(
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          suffixIcon: togglePassword(),
+                          prefix: SizedBox(width: 10),
+                          hintStyle: TextStyle(
+                              color: Color(0xFFA5ABB3),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
+                          hintText: 'Password',
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFF4F6F9),
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey.withOpacity(0.2),
+                            ),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey.withOpacity(0.2),
+                            ),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+                        obscureText: _obscureText,
+                      ),
+                    ),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide:
-                      BorderSide(
-                          color: Color(0xFFEBEEF2),
-                          width: 2),
-                      borderRadius: BorderRadius.circular(100)),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide:
-                      BorderSide(
-                          color: Color(0xFFEBEEF2),
-                          width: 2),
-                      borderRadius: BorderRadius.circular(100)),
-                ),
-                obscureText: _obscureText,
+                ],
               ),
               SizedBox(height: 10),
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(
-                      left: 15
-                    ),
                     child: checkBox(),
                   ),
                   Text(
                     "Remember me",
                     style: TextStyle(
-                      color: Color(0xFF2C3A4B),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600
-                    ),
+                        color: Color(0xFF2C3A4B),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -159,17 +190,20 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                 height: 50,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final newRoute = MaterialPageRoute(
+                      builder: (context) => MainPage(),
+                    );
+                    Navigator.pushReplacement(context, newRoute);
+                  },
                   child: Text(
                     "Sign in",
-                    style: TextStyle(
-                      
-                    ),
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100)
-                    ),
+                        borderRadius: BorderRadius.circular(100)),
                     backgroundColor: primaryColor,
                   ),
                 ),
@@ -179,14 +213,18 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      final route = MaterialPageRoute(
+                        builder: (context) => AboutChangePassword(),
+                      );
+                      Navigator.push(context, route);
+                    },
                     child: Text(
                       "Forgot the password?",
                       style: TextStyle(
-                        color: primaryColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600
-                      ),
+                          color: primaryColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
@@ -197,63 +235,77 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                 children: [
                   Text(
                     "or continue with",
-                    style: TextStyle(
-                      fontSize: 16
-                    ),
+                    style: TextStyle(fontSize: 16),
                   ),
                 ],
               ),
               SizedBox(height: 20),
               Row(
                 children: [
-                  Container(
-                    height: 57,
-                    width: 158,
-                    child: ElevatedButton.icon(
-                      icon: Icon(
-                        Icons.facebook,
-                        color: Color(0xFF3C5A9A),
+                  InkWell(
+                    onTap: () {},
+                    splashColor: Colors.white,
+                    child: Container(
+                      height: 57,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.2),
+                              spreadRadius: 1),
+                        ],
                       ),
-                      onPressed: () {},
-                      label: Text(
-                        "Facebook",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)
-                        )
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.facebook,
+                            size: 30,
+                            color: Color(0xFF3C5A9A),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Facebook',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w600),
+                          )
+                        ],
                       ),
                     ),
                   ),
                   Spacer(),
-                  Container(
-                    height: 57,
-                    width: 158,
-                    child: ElevatedButton.icon(
-                      icon: Icon(
-                        FontAwesomeIcons.google,
-                        color: Colors.blue
+                  InkWell(
+                    onTap: () {},
+                    splashColor: Colors.white,
+                    child: Container(
+                      height: 57,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.2),
+                              spreadRadius: 1),
+                        ],
                       ),
-                      onPressed: () {},
-                      label: Text(
-                        "Google",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12)
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.google,
+                            size: 25,
+                            color: Color(0xFFFBBC05),
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Google',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w600),
                           )
+                        ],
                       ),
                     ),
                   ),
@@ -272,14 +324,18 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      final route = MaterialPageRoute(
+                        builder: (context) => AboutSignUpPage(),
+                      );
+                      Navigator.push(context, route);
+                    },
                     child: Text(
                       "Sign up",
                       style: TextStyle(
-                        color: primaryColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16
-                      ),
+                          color: primaryColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16),
                     ),
                   ),
                 ],
@@ -290,22 +346,22 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
       ),
     );
   }
-  Widget togglePassword(){
+
+  Widget togglePassword() {
     return IconButton(
-      padding: EdgeInsets.only(
-        right: 20
-      ),
+      padding: EdgeInsets.only(right: 20),
       onPressed: () {
         setState(() {
           _obscureText = !_obscureText;
         });
       },
-      icon: _obscureText ?
-      Icon(Icons.visibility, size: 24) :
-      Icon(Icons.visibility_off, size: 24),
+      icon: _obscureText
+          ? Icon(Icons.visibility, size: 24)
+          : Icon(Icons.visibility_off, size: 24),
     );
   }
-  Widget checkBox(){
+
+  Widget checkBox() {
     return IconButton(
       color: Color(0xFFF43F5E),
       onPressed: () {
@@ -313,8 +369,9 @@ class _AboutSignInPageState extends State<AboutSignInPage> {
           _obscureBox = !_obscureBox;
         });
       },
-      icon: _obscureBox ? Icon(Icons.check_box_outline_blank) :
-      Icon(Icons.check_box),
+      icon: _obscureBox
+          ? Icon(Icons.check_box_outline_blank)
+          : Icon(Icons.check_box),
     );
   }
 }

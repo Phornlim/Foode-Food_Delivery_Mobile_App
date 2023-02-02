@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'chat_page2.dart';
+
 
 class ChatPage1 extends StatefulWidget {
   const ChatPage1({Key? key}) : super(key: key);
@@ -40,7 +42,9 @@ class _ChatPageState1 extends State<ChatPage1> {
               children: [
                 SizedBox(height: 20),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, ChatPage2.routeName);
+                  },
                   child: Container(
                     height: 100,
                     margin: EdgeInsets.only(right: 16, left: 16),
@@ -477,7 +481,7 @@ class _ChatPageState1 extends State<ChatPage1> {
                     ),
                   ),
                 ),
-                SizedBox(height: 100),
+                SizedBox(height: 120),
               ],
             ),
           ],

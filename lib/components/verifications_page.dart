@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/components/reset_password_page.dart';
 
 import '../common/constants.dart';
 
@@ -10,7 +11,7 @@ class AboutVerificationsPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(
-          top: 40,
+          top: 60,
           right: 20,
           left: 20,
           bottom: 40
@@ -20,11 +21,25 @@ class AboutVerificationsPage extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  child: BackButton(
-                    color: primaryColor,
+                  height: 36,
+                  width: 36,
+                  child: IconButton(
+                    splashRadius: 2,
+                    iconSize: 20,
+                    padding: EdgeInsets.only(),
+                    icon: Icon(Icons.arrow_back_ios_new),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                SizedBox(width: 10),
+                SizedBox(width: 20),
                 Text(
                   "Forgot password?",
                   style: TextStyle(
@@ -34,12 +49,12 @@ class AboutVerificationsPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 220),
+            SizedBox(height: 160),
             Container(
               child: Column(
                 children: [
                   Text(
-                    "Code has been send to +855123*****89",
+                    "Code has been send to +6282******39",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400
@@ -234,7 +249,12 @@ class AboutVerificationsPage extends StatelessWidget {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  final route = MaterialPageRoute(
+                    builder: (context) => AboutResetPassword(),
+                  );
+                  Navigator.push(context, route);
+                },
                 child: Text(
                   "Next",
                   style: TextStyle(

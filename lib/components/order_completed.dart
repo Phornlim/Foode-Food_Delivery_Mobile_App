@@ -1,24 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class OrderCompletedPage extends StatelessWidget {
+class OrderCompletedPage extends StatefulWidget {
   const OrderCompletedPage({Key? key}) : super(key: key);
 
+  @override
+  State<OrderCompletedPage> createState() => _OrderCompletedPageState();
+}
+
+class _OrderCompletedPageState extends State<OrderCompletedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor.withOpacity(0.4),
-            shape: BoxShape.circle,
-          ),
-          margin: const EdgeInsets.only(left: 16),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: const Icon(Icons.arrow_back),
+        leadingWidth: 80,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 20,top: 20),
+          child: Row(
+            children: [
+              Container(
+                height: 36,
+                width: 36,
+                child: IconButton(
+                  splashRadius: 2,
+                  iconSize: 20,
+                  padding: EdgeInsets.only(),
+                  icon: Icon(Icons.arrow_back_ios_new),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  color: Theme.of(context).primaryColor,
+                ),
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ],
           ),
         ),
       ),
