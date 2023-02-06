@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../common/constants.dart';
+import 'about_set_locations_page.dart';
 
 class AboutUploadPhoto extends StatelessWidget {
   const AboutUploadPhoto({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class AboutUploadPhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 60, right: 20, left: 20, bottom: 40),
+        padding: EdgeInsets.only(top: 40, right: 20, left: 20, bottom: 20),
         child: Column(
           children: [
             Row(
@@ -78,7 +79,12 @@ class AboutUploadPhoto extends StatelessWidget {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  final route = MaterialPageRoute(
+                    builder: (context) => AboutSetLocationsPage(),
+                  );
+                  Navigator.push(context, route);
+                },
                 child: Text(
                   "Next",
                   style: TextStyle(),
@@ -89,7 +95,7 @@ class AboutUploadPhoto extends StatelessWidget {
                   backgroundColor: primaryColor,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

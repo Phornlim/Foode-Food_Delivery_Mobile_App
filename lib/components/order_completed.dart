@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/components/rate_meal.dart';
+import 'package:flutter_food_delivery_app/views/main_page.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import '../views/home_page.dart';
 
 class OrderCompletedPage extends StatefulWidget {
   const OrderCompletedPage({Key? key}) : super(key: key);
@@ -27,7 +31,10 @@ class _OrderCompletedPageState extends State<OrderCompletedPage> {
                   padding: EdgeInsets.only(),
                   icon: Icon(Icons.arrow_back_ios_new),
                   onPressed: () {
-                    Navigator.pop(context);
+                    final newRoute = MaterialPageRoute(
+                      builder: (context) => MainPage(),
+                    );
+                    Navigator.pushAndRemoveUntil(context, newRoute, (route) => false);
                   },
                   color: Theme.of(context).primaryColor,
                 ),
@@ -42,86 +49,96 @@ class _OrderCompletedPageState extends State<OrderCompletedPage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 80),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 160,
-                  width: 160,
-                  child: Image.asset('assets/img/pf_order_completed.png'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Text(
-              "Thank you!",
-              style: TextStyle(
-                  fontSize: 32,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w600),
-            ),
-            SizedBox(height: 10,),
-            Text(
-              "Order Completed",
-              style: TextStyle(
-                  fontSize: 32,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w600),
-            ),
-            SizedBox(height: 40),
-            Text(
-              'Please rate the menu',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            SizedBox(height: 20),
-            RatingBar.builder(
-              initialRating: 3,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
-                Icons.star,
-                color: Theme.of(context).primaryColor,
-              ),
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
-            ),
-            SizedBox(height: 30),
-            Container(
-              padding: EdgeInsets.only(
-                  right: 16,
-                  left: 16
-              ),
-              height: 80,
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+        child: Padding(
+          padding: const EdgeInsets.only(
+            bottom: 20
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 80),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 160,
+                    width: 160,
+                    child: Image.asset('assets/img/pf_order_completed.png'),
                   ),
-                  suffixIcon: Icon(Icons.arrow_circle_left_outlined),
-                  hintText: 'Leave feedback...',
+                ],
+              ),
+              SizedBox(height: 20),
+              Text(
+                "Thank you!",
+                style: TextStyle(
+                    fontSize: 32,
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 10,),
+              Text(
+                "Order Completed",
+                style: TextStyle(
+                    fontSize: 32,
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 40),
+              Text(
+                'Please rate the menu',
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+              SizedBox(height: 20),
+              RatingBar.builder(
+                initialRating: 3,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                itemBuilder: (context, _) => Icon(
+                  Icons.star,
+                  color: Theme.of(context).primaryColor,
+                ),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                },
+              ),
+              SizedBox(height: 30),
+              Container(
+                padding: EdgeInsets.only(
+                    right: 16,
+                    left: 16
+                ),
+                height: 80,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    suffixIcon: Icon(Icons.arrow_circle_left_outlined),
+                    hintText: 'Leave feedback...',
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Submit"),
+              SizedBox(height: 20),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      final route = MaterialPageRoute(
+                        builder: (context) => RateMeal(),
+                      );
+                      Navigator.push(context, route);
+                    },
+                    child: const Text("Submit"),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-          ],
+            ],
+          ),
         ),
       ),
     );

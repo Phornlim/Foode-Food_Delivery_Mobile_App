@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/components/payment_method.dart';
 
 import '../common/constants.dart';
 
@@ -295,7 +296,12 @@ class _DeliverToState extends State<DeliverTo> {
                     height: 55,
                     width: 332,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => PaymentMethod(),
+                        );
+                        Navigator.push(context, route);
+                      },
                       child: Text(
                         'Next',
                         style: TextStyle(

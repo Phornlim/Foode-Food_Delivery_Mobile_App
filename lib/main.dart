@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/common/constants.dart';
+import 'package:flutter_food_delivery_app/router/app_router.dart';
 import 'package:flutter_food_delivery_app/views/splash_page.dart';
-import 'router/app_router.dart';
+
+import 'components/find_your_location.dart';
+import 'components/payment_method_select.dart';
 
 void main() {
   runApp(MyApp());

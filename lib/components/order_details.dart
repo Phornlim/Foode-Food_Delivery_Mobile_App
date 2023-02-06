@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'deliver_to.dart';
+
 class OrderDetails extends StatefulWidget {
   const OrderDetails({Key? key}) : super(key: key);
 
@@ -462,7 +464,12 @@ class _OrderDetailsState extends State<OrderDetails> {
                     height: 55,
                     width: 332,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => DeliverTo(),
+                        );
+                        Navigator.push(context, route);
+                      },
                       child: Text(
                         'Place my order',
                         style: TextStyle(
@@ -496,7 +503,9 @@ class _OrderDetailsState extends State<OrderDetails> {
               iconSize: 20,
               padding: EdgeInsets.only(),
               icon: Icon(Icons.arrow_back_ios_new),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               color: Theme.of(context).primaryColor,
             ),
             padding: EdgeInsets.all(4),

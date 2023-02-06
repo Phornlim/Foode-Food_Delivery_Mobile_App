@@ -3,6 +3,8 @@ import 'package:flutter_food_delivery_app/common/constants.dart';
 import 'package:flutter_food_delivery_app/views/main_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'fill_bio_page.dart';
+
 class AboutSignUpPage extends StatefulWidget {
   const AboutSignUpPage({Key? key}) : super(key: key);
 
@@ -189,9 +191,9 @@ class _AboutSignInPageState extends State<AboutSignUpPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     final newRoute = MaterialPageRoute(
-                      builder: (context) => MainPage(),
+                      builder: (context) => AboutFillBioPage(),
                     );
-                    Navigator.pushAndRemoveUntil(context, newRoute, (route) => false);
+                    Navigator.push(context, newRoute);
                   },
                   child: Text(
                     "Sign up",

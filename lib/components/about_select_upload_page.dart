@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../common/constants.dart';
+import 'about_upload_photo_page.dart';
 
 class AboutSelectUploadPage extends StatefulWidget {
   const AboutSelectUploadPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _AboutSelectUploadPageState extends State<AboutSelectUploadPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 60, right: 20, left: 20, bottom: 40),
+        padding: EdgeInsets.only(top: 40, right: 20, left: 20, bottom: 20),
         child: Column(
           children: [
             Row(
@@ -157,7 +158,12 @@ class _AboutSelectUploadPageState extends State<AboutSelectUploadPage> {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  final route = MaterialPageRoute(
+                    builder: (context) => AboutUploadPhoto(),
+                  );
+                  Navigator.push(context, route);
+                },
                 child: Text(
                   "Next",
                   style: TextStyle(),

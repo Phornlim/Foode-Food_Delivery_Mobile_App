@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/views/main_page.dart';
 
 import '../common/constants.dart';
 
@@ -14,7 +15,7 @@ class _SelectLocationState extends State<SelectLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 60, right: 20, left: 20, bottom: 40),
+        padding: EdgeInsets.only(top: 40, right: 20, left: 20, bottom: 20),
         child: Column(
           children: [
             Row(
@@ -97,7 +98,7 @@ class _SelectLocationState extends State<SelectLocation> {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 60),
             Stack(
               children: [
                 Container(
@@ -174,7 +175,12 @@ class _SelectLocationState extends State<SelectLocation> {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  final newRoute = MaterialPageRoute(
+                    builder: (context) => MainPage(),
+                  );
+                  Navigator.pushAndRemoveUntil(context, newRoute, (route) => false);
+                },
                 child: Text(
                   "Set Location",
                   style: TextStyle(),
@@ -185,7 +191,7 @@ class _SelectLocationState extends State<SelectLocation> {
                   backgroundColor: primaryColor,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

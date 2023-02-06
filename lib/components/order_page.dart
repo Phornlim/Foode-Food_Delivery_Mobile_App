@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'order_details.dart';
+
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class _OrderPageState extends State<OrderPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             _buildTopSelection(),
             Row(
               children: [
@@ -50,7 +52,12 @@ class _OrderPageState extends State<OrderPage> {
                         color: Theme.of(context).primaryColor.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(10)),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => OrderDetails(),
+                        );
+                        Navigator.push(context, route);
+                      },
                       splashRadius: 1,
                       icon: Icon(
                         Icons.filter_list,

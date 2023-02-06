@@ -82,39 +82,127 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  RestaurantItemCard(
-                    index: 0,
-                    title: 'Lovy Food',
-                    subtitle: '10 min',
-                    imagePath: 'assets/img/lovy_food.png',
-                    margin: EdgeInsets.only(
-                        right: 16,
-                        left: 16,
-                        bottom: 16
+                  SizedBox(width: 20),
+                  Container(
+                    height: 199,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(24),
+                      border:
+                      Border.all(color: Colors.grey.withOpacity(0.15)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 10),
+                        Container(
+                          height: 100,
+                          width: 140,
+                          child: Image.asset('assets/img/burger.png'),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Hamburger',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          '\$10',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  RestaurantItemCard(
-                    index: 1,
-                    title: 'Cloudy Food',
-                    subtitle: '10 min',
-                    imagePath: 'assets/img/cloudy_resto.png',
-                    margin: EdgeInsets.only(
-                        right: 16,
-                        left: 16,
-                        bottom: 16
+                  SizedBox(width: 20),
+                  Container(
+                    height: 199,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(24),
+                      border:
+                      Border.all(color: Colors.grey.withOpacity(0.15)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 20),
+                        Container(
+                          height: 90,
+                          width: 110,
+                          child: Image.asset('assets/img/pizza.png'),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Pizza',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          '\$11',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  RestaurantItemCard(
-                    index: 2,
-                    title: 'Circlo Food',
-                    subtitle: '10 min',
-                    imagePath: 'assets/img/circlo_resto.png',
-                    margin: EdgeInsets.only(
-                        right: 16,
-                        left: 16,
-                        bottom: 16
+                  SizedBox(width: 20),
+                  Container(
+                    height: 199,
+                    width: 160,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(24),
+                      border:
+                      Border.all(color: Colors.grey.withOpacity(0.15)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 25),
+                        Container(
+                          height: 85,
+                          width: 120,
+                          child: Image.asset('assets/img/sandwich.png'),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Hamburger',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          '\$8',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                  SizedBox(width: 20),
                 ],
               ),
             ),

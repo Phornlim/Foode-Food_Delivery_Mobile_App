@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'find_your_location.dart';
+
 class PaymentMethod extends StatefulWidget {
   const PaymentMethod({Key? key}) : super(key: key);
 
@@ -291,9 +293,14 @@ class _PaymentMethodState extends State<PaymentMethod> {
                     height: 55,
                     width: 332,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => FindYourLocation(),
+                        );
+                        Navigator.push(context, route);
+                      },
                       child: Text(
-                        'Next',
+                        'Order now',
                         style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontSize: 18,

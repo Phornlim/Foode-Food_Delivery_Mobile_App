@@ -85,10 +85,10 @@ class _ChatCallingState extends State<ChatCalling> {
                       },
                       icon: IconButton(
                         onPressed: () {
-                          final newRoute = MaterialPageRoute(
+                          final route = MaterialPageRoute(
                             builder: (context) => MainPage(),
                           );
-                          Navigator.pushAndRemoveUntil(context, newRoute, (route) => false);
+                          Navigator.pushAndRemoveUntil(context, route, (route) => false);
                         },
                         icon: Icon(
                           Icons.cancel,

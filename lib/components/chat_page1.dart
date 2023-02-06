@@ -17,7 +17,7 @@ class _ChatPageState1 extends State<ChatPage1> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             _buildTopSelection(),
             Row(
               children: [

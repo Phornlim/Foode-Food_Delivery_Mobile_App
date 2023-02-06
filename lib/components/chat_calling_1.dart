@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../views/main_page.dart';
 import 'chat_page2.dart';
+import 'order_completed.dart';
 
 class ChatCalling1 extends StatefulWidget {
   const ChatCalling1({Key? key}) : super(key: key);
@@ -82,7 +83,7 @@ class _ChatCalling1State extends State<ChatCalling1> {
                       icon: IconButton(
                         onPressed: () {
                           final newRoute = MaterialPageRoute(
-                            builder: (context) => MainPage(),
+                            builder: (context) => OrderCompletedPage(),
                           );
                           Navigator.pushAndRemoveUntil(context, newRoute, (route) => false);
                         },

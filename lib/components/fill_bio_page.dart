@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_delivery_app/common/constants.dart';
+import 'package:flutter_food_delivery_app/components/payment_method_select.dart';
 import 'package:intl/intl.dart';
 
 class AboutFillBioPage extends StatefulWidget {
@@ -31,7 +32,9 @@ class _AboutFillBioPageState extends State<AboutFillBioPage> {
                       iconSize: 20,
                       padding: EdgeInsets.only(),
                       icon: Icon(Icons.arrow_back_ios_new),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       color: Theme.of(context).primaryColor,
                     ),
                     padding: EdgeInsets.all(4),
@@ -367,31 +370,6 @@ class _AboutFillBioPageState extends State<AboutFillBioPage> {
                   }
                 },
               ),
-              // TextField(
-              //   style: TextStyle(
-              //       fontSize: 16,
-              //       fontWeight: FontWeight.w600
-              //   ),
-              //   decoration: InputDecoration(
-              //     isDense: true,
-              //     border: OutlineInputBorder(),
-              //     hintStyle: TextStyle(
-              //         color: Colors.grey
-              //     ),
-              //     enabledBorder: OutlineInputBorder(
-              //         borderSide:
-              //         BorderSide(
-              //             color: Color(0xFFEBEEF2),
-              //             width: 2),
-              //         borderRadius: BorderRadius.circular(100)),
-              //     focusedBorder: OutlineInputBorder(
-              //         borderSide:
-              //         BorderSide(
-              //             color: Color(0xFFEBEEF2),
-              //             width: 2),
-              //         borderRadius: BorderRadius.circular(100)),
-              //   ),
-              // ),
               SizedBox(height: 10),
               Container(
                 padding: EdgeInsets.only(left: 25),
@@ -458,7 +436,12 @@ class _AboutFillBioPageState extends State<AboutFillBioPage> {
                 height: 50,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final newRoute = MaterialPageRoute(
+                      builder: (context) => PaymentMethodSelect(),
+                    );
+                    Navigator.push(context, newRoute);
+                  },
                   child: Text(
                     "Next",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),

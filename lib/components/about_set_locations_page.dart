@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_app/components/select_location.dart';
 
 import '../common/constants.dart';
+import 'find_your_location.dart';
 
 class AboutSetLocationsPage extends StatefulWidget {
   const AboutSetLocationsPage({Key? key}) : super(key: key);
@@ -14,7 +16,7 @@ class _AboutSetLocationsPageState extends State<AboutSetLocationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 60, right: 20, left: 20, bottom: 40),
+        padding: EdgeInsets.only(top: 40, right: 20, left: 20, bottom: 20),
         child: Column(
           children: [
             Row(
@@ -72,7 +74,12 @@ class _AboutSetLocationsPageState extends State<AboutSetLocationsPage> {
                 child: Column(
                   children: [
                     ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        final route = MaterialPageRoute(
+                          builder: (context) => SelectLocation(),
+                        );
+                        Navigator.push(context, route);
+                      },
                       leading: CircleAvatar(
                         backgroundColor:
                             Theme.of(context).primaryColor.withOpacity(0.2),
@@ -91,9 +98,7 @@ class _AboutSetLocationsPageState extends State<AboutSetLocationsPage> {
                         Text(
                           'Set location',
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600
-                          ),
+                              fontSize: 16, fontWeight: FontWeight.w600),
                         )
                       ],
                     )
@@ -106,15 +111,23 @@ class _AboutSetLocationsPageState extends State<AboutSetLocationsPage> {
               height: 50,
               width: double.infinity,
               child: ElevatedButton(
+
                 onPressed: () {},
                 child: Text(
                   "Next",
-                  style: TextStyle(),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
                 ),
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100)),
-                  backgroundColor: primaryColor,
+                    borderRadius: BorderRadius.circular(
+                      100,
+                    ),
+                  ),
+                  backgroundColor: primaryColor.withOpacity(0.4),
                 ),
               ),
             )
